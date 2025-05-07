@@ -70,7 +70,28 @@ export default async function Page({ searchParams }) {
 
 url에 있는 ?page=2&searchFilter=CANCEL 파라미터들을 클라이언트 상태에서는 atom으로 관리하고 있었는데
 
-2페이지로 진입시 서버상태일때 userBookingsRequestAtom의 기본값인 page=1의 값이 먼저 보이고
+2페이지로 진입시 위에서 설정한 프리패칭이 일어난 다음에
+
+userBookingsRequestAtom의 기본값인 page=1의 값이 다시 세팅되어 1페이지의 화면이 잠시 보이고 2페이지 화면으로 넘어가는 현상이 있었다.
+
+그럼 userBookingsRequestAtom의 기본값을 코드에 적은 값이 아닌
+
+서버에서 알고있었던 값으로 초기화하기위해 useHydrateAtoms으로 서버의 값을 초기값으로 선언해주는 작업을 추가했다.
+
+```js
+useHydrateAtoms([
+  [
+    userBookingsRequestAtom,
+    initialUserBookingsRequest as Required<GetUserBookingsByFilterRequest>,
+  ],
+]);
+```
+
+## 1페이지도 잘 나오고 2페이지도 잘 나오는데
+
+2페이지
+
+
 
 
 
