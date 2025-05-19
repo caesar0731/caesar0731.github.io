@@ -1,5 +1,3 @@
-# SSR 환경에서 Layout Shift 최적화하기: Next.js App Router
-
 **React Query + Jotai 활용한 초기 렌더링 성능 개선**
 
 Next.js와 같은 SSR 환경에서는 첫 화면이 빠르게 그려지더라도, 클라이언트 단에서 데이터를 다시 패칭하는 사이에 레이아웃 이동(Layout Shift) 이 발생해 사용자 경험을 해칠 수 있습니다. 특히 리스트의 길이처럼 화면의 높이가 바뀌는 요소들은 CLS(Cumulative Layout Shift) 점수에 큰 영향을 줍니다.
@@ -12,9 +10,7 @@ Next.js와 같은 SSR 환경에서는 첫 화면이 빠르게 그려지더라도
 
 - 데이터가 패치되면서 리스트가 나타나고, 리스트 길이에 따라 화면이 갑자기 줄어드는 Layout Shift 발생
 
-// 특히 페이지네이션이 적용된 화면에서, 다른 페이지로 새로고침 시 1페이지 → 2페이지로 전환되는 깜빡임 현상 발생
-
-## 해결 1: React Query Dehydration 적용
+### 해결 1: React Query Dehydration 적용
 
 React Query의 **prefetchQuery** + **Hydrate** 기능을 이용해 서버에서 데이터를 먼저 패치하고,
 
@@ -54,7 +50,7 @@ return (
 
 - 초기 진입을 2페이지로 할때 정상적으로 prefetch + hydrate가 진행된다음 클라이언트에서 스토어에 기본값으로 선언된 page=1을 보고 1페이지를 호출
 
-## 해결 2: Jotai useHydrateAtoms 적용
+### 해결 2: Jotai useHydrateAtoms 적용
 
 Jotai의 **useHydrateAtoms**를 사용해 서버사이드에서 사용한 page query를 atom의 초기값으로 설정해주었습니다.
 
@@ -77,7 +73,7 @@ useHydrateAtoms([
 
 - 전역스토어 관점에서는 2페이지에서 수화되어 데이터를 가지고 있는 더이상 초기화가 불필요한 atom
 
-## 해결 3: List 페이지 단위로 Provider 분리
+### 해결 3: List 페이지 단위로 Provider 분리
 
 Provider Scope 단위로 상태값들이 구분되어있어 2페이지에서 수화된 값이 3페이지에서도 남아있어서 
 
@@ -101,7 +97,7 @@ prefetch는 2페이지로 진행하고 queryKey가 달라 클라이언트 상태
 
 - 레이아웃 이동 없이 실제 콘텐츠가 곧바로 화면에 노출
 
-그동안 Next.js를 사용해왔지만, 서버사이드 렌더링의 이점을 충분히 활용하지 못하고 있었습닏.
+그동안 Next.js를 사용해왔지만, 서버사이드 렌더링의 이점을 충분히 활용하지 못하고 있었습니다.
 
 이번 개선을 통해 서버에서 데이터를 prefetch하고 클라이언트에서는 atom을 hydrate하는 흐름을 유기적으로 구성할 수 있었고,
 
