@@ -1,3 +1,13 @@
+---
+layout: post
+title: "SSR 환경에서 Layout Shift 최적화하기"
+tags: SSR
+lastmod: 2025-05-19 16:00:00
+sitemap: 
+    changefreq : daily
+    priority : 0.5
+---
+
 **React Query + Jotai 활용한 초기 렌더링 성능 개선**
 
 Next.js와 같은 SSR 환경에서는 첫 화면이 빠르게 그려지더라도, 클라이언트 단에서 데이터를 다시 패칭하는 사이에 레이아웃 이동(Layout Shift) 이 발생해 사용자 경험을 해칠 수 있습니다. 특히 리스트의 길이처럼 화면의 높이가 바뀌는 요소들은 CLS(Cumulative Layout Shift) 점수에 큰 영향을 줍니다.
