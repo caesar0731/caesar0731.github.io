@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "SSR 환경에서 Layout Shift 최적화하기"
 tags: SSR
 lastmod: 2025-05-19 16:00:00
