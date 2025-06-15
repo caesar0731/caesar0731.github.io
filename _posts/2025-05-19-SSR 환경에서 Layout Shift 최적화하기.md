@@ -5,6 +5,7 @@ lastmod: 2025-05-19 16:00:00
 sitemap: 
     changefreq : daily
     priority : 0.5
+comments: true
 ---
 
 **React Query + Jotai 활용한 초기 렌더링 성능 개선**
