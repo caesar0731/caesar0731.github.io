@@ -21,9 +21,13 @@ comments: true
 
 - 피그마 (데스크탑 앱) > 기본설정 > DEV MODE MCP 서버 활성화
 
-2. MCP 서버 주소 
+![figma_mcp_image_1](/assets/images/figma_mcp/figma_mcp_image_1.png)
+
+1. MCP 서버 주소 
 
 - http://127.0.0.1:3845/mcp
+- 
+![figma_mcp_image_2](/assets/images/figma_mcp/figma_mcp_image_2.png)
 
 ### VSCODE
 
@@ -31,7 +35,7 @@ comments: true
 
 ```json
 {  
-	"chat.mcp.discovery.enabled": true,
+  "chat.mcp.discovery.enabled": true,
   "chat.agent.enabled": true
 }
 ```
@@ -40,18 +44,18 @@ comments: true
 
 - figma에서 활성화한 mcp 주소
 
-```
-{
-  "servers": {
-    "Figma Dev Mode MCP": {
-      "type": "sse",
-      "url": "http://127.0.0.1:3845/mcp"
-    }
+```json
+"servers": {
+  "Figma Dev Mode MCP": {
+    "type": "sse",
+    "url": "http://127.0.0.1:3845/mcp"
   }
 }
 ```
 
 5. 코파일럿 agent 모드 도구 || 명령어 파레트 모드에서 > Figma Dev Mode MCP mcp 서버 실행
+
+![figma_mcp_image_3](/assets/images/figma_mcp/figma_mcp_image_3.png)
 
 6. (선택사항) copilot-instructions에 프롬프트 가이드 추가
 
@@ -68,11 +72,11 @@ comments: true
 
 - 영역이 작을수록 오류 없이 디자인 그대로 생성합니다.
 
-![image.png](attachment:88c8bd17-7861-40b5-8815-2183cd5fcc46:05b766c2-745e-4168-92e7-6e1918f6dda5.png)
+![figma_mcp_image_4](/assets/images/figma_mcp/figma_mcp_image_4.png)
 
 8. 코파일럿 - agent에서 명령 (기본값: jsx - tailwind)
 
-```
+```sh
 `https://www.figma.com/design/{내프로젝트디자인주소}` 이 피그마 디자인을 코드로 변환해줘
 기존 프로젝트 구조를 확인해서 유사한 컴포넌트 구조로 작성해줘
 ```
