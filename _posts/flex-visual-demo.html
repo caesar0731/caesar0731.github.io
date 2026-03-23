@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tailwind Flex Visual Demo</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Pretendard', sans-serif; background: #f8fafc; color: #1e293b; padding: 32px; }
+  h1 { font-size: 24px; margin-bottom: 8px; }
+  .subtitle { color: #64748b; margin-bottom: 40px; font-size: 14px; }
+  .section { margin-bottom: 48px; }
+  .section h2 { font-size: 18px; font-weight: 700; margin-bottom: 20px; color: #0f172a; border-left: 3px solid #3b82f6; padding-left: 12px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; }
+  .card-label {
+    font-family: 'Fira Code', 'SF Mono', monospace; font-size: 13px; font-weight: 600;
+    color: #3b82f6; margin-bottom: 4px;
+  }
+  .card-css { font-family: monospace; font-size: 11px; color: #94a3b8; margin-bottom: 12px; }
+  .box {
+    border: 1.5px dashed #cbd5e1; border-radius: 8px; padding: 10px;
+    min-height: 70px; background: #f8fafc;
+  }
+  .item {
+    background: #3b82f6; color: #fff; border-radius: 6px;
+    padding: 8px 16px; font-size: 13px; font-weight: 600;
+    text-align: center; white-space: nowrap;
+  }
+  .item.alt { background: #8b5cf6; }
+  .item.green { background: #22c55e; }
+  .item.gray { background: #94a3b8; }
+  .badge {
+    display: inline-block; background: #fef3c7; color: #92400e;
+    font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px;
+    margin-left: 6px; vertical-align: middle;
+  }
+  .wide { grid-column: 1 / -1; }
+  .divider { border: none; border-top: 1px solid #e2e8f0; margin: 40px 0; }
+  .note {
+    background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px;
+    padding: 16px 20px; margin-top: 16px; font-size: 13px; color: #1e40af; line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<h1>Tailwind CSS Flex - Visual Reference</h1>
+<p class="subtitle">각 클래스가 어떻게 동작하는지 한눈에 확인하세요</p>
+
+<!-- flex-direction -->
+<div class="section">
+  <h2>flex-direction</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label">flex-row <span class="badge">기본값</span></div>
+      <div class="card-css">flex-direction: row</div>
+      <div class="box" style="display:flex; gap:8px;">
+        <div class="item">1</div><div class="item alt">2</div><div class="item green">3</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">flex-col <span class="badge">자주 씀</span></div>
+      <div class="card-css">flex-direction: column</div>
+      <div class="box" style="display:flex; flex-direction:column; gap:8px;">
+        <div class="item">1</div><div class="item alt">2</div><div class="item green">3</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">flex-row-reverse</div>
+      <div class="card-css">flex-direction: row-reverse</div>
+      <div class="box" style="display:flex; flex-direction:row-reverse; gap:8px;">
+        <div class="item">1</div><div class="item alt">2</div><div class="item green">3</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">flex-col-reverse</div>
+      <div class="card-css">flex-direction: column-reverse</div>
+      <div class="box" style="display:flex; flex-direction:column-reverse; gap:8px;">
+        <div class="item">1</div><div class="item alt">2</div><div class="item green">3</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- justify-content -->
+<div class="section">
+  <h2>justify-content (주축 정렬)</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label">justify-start</div>
+      <div class="card-css">justify-content: flex-start</div>
+      <div class="box" style="display:flex; justify-content:flex-start; gap:8px;">
+        <div class="item">A</div><div class="item alt">B</div><div class="item green">C</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">justify-center <span class="badge">자주 씀</span></div>
+      <div class="card-css">justify-content: center</div>
+      <div class="box" style="display:flex; justify-content:center; gap:8px;">
+        <div class="item">A</div><div class="item alt">B</div><div class="item green">C</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">justify-end</div>
+      <div class="card-css">justify-content: flex-end</div>
+      <div class="box" style="display:flex; justify-content:flex-end; gap:8px;">
+        <div class="item">A</div><div class="item alt">B</div><div class="item green">C</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">justify-between <span class="badge">자주 씀</span></div>
+      <div class="card-css">justify-content: space-between</div>
+      <div class="box" style="display:flex; justify-content:space-between;">
+        <div class="item">A</div><div class="item alt">B</div><div class="item green">C</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">justify-around</div>
+      <div class="card-css">justify-content: space-around</div>
+      <div class="box" style="display:flex; justify-content:space-around;">
+        <div class="item">A</div><div class="item alt">B</div><div class="item green">C</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">justify-evenly</div>
+      <div class="card-css">justify-content: space-evenly</div>
+      <div class="box" style="display:flex; justify-content:space-evenly;">
+        <div class="item">A</div><div class="item alt">B</div><div class="item green">C</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- justify-content (flex-col) -->
+<div class="section">
+  <h2>justify-content (flex-col일 때)</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label">justify-start</div>
+      <div class="card-css">flex-direction: column + justify-content: flex-start</div>
+      <div class="box" style="display:flex; flex-direction:column; justify-content:flex-start; gap:8px; min-height:160px;">
+        <div class="item">A</div><div class="item alt">B</div><div class="item green">C</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">justify-center</div>
+      <div class="card-css">flex-direction: column + justify-content: center</div>
+      <div class="box" style="display:flex; flex-direction:column; justify-content:center; gap:8px; min-height:160px;">
+        <div class="item">A</div><div class="item alt">B</div><div class="item green">C</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">justify-end</div>
+      <div class="card-css">flex-direction: column + justify-content: flex-end</div>
+      <div class="box" style="display:flex; flex-direction:column; justify-content:flex-end; gap:8px; min-height:160px;">
+        <div class="item">A</div><div class="item alt">B</div><div class="item green">C</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">justify-between</div>
+      <div class="card-css">flex-direction: column + justify-content: space-between</div>
+      <div class="box" style="display:flex; flex-direction:column; justify-content:space-between; min-height:160px;">
+        <div class="item">A</div><div class="item alt">B</div><div class="item green">C</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- align-items (flex-col) -->
+<div class="section">
+  <h2>align-items (flex-col일 때)</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label">items-start</div>
+      <div class="card-css">flex-direction: column + align-items: flex-start</div>
+      <div class="box" style="display:flex; flex-direction:column; align-items:flex-start; gap:8px;">
+        <div class="item">A</div><div class="item alt">B</div><div class="item green">C</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">items-center</div>
+      <div class="card-css">flex-direction: column + align-items: center</div>
+      <div class="box" style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+        <div class="item">A</div><div class="item alt">B</div><div class="item green">C</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">items-end</div>
+      <div class="card-css">flex-direction: column + align-items: flex-end</div>
+      <div class="box" style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
+        <div class="item">A</div><div class="item alt">B</div><div class="item green">C</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">items-stretch <span class="badge">기본값</span></div>
+      <div class="card-css">flex-direction: column + align-items: stretch</div>
+      <div class="box" style="display:flex; flex-direction:column; align-items:stretch; gap:8px;">
+        <div class="item">A</div><div class="item alt">B</div><div class="item green">C</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- align-items -->
+<div class="section">
+  <h2>align-items (교차축 정렬)</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label">items-start</div>
+      <div class="card-css">align-items: flex-start</div>
+      <div class="box" style="display:flex; align-items:flex-start; gap:8px; min-height:110px;">
+        <div class="item" style="padding:6px 16px;">A</div>
+        <div class="item alt" style="padding:20px 16px;">B (tall)</div>
+        <div class="item green" style="padding:10px 16px;">C</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">items-center <span class="badge">가장 많이 씀</span></div>
+      <div class="card-css">align-items: center</div>
+      <div class="box" style="display:flex; align-items:center; gap:8px; min-height:110px;">
+        <div class="item" style="padding:6px 16px;">A</div>
+        <div class="item alt" style="padding:20px 16px;">B (tall)</div>
+        <div class="item green" style="padding:10px 16px;">C</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">items-end</div>
+      <div class="card-css">align-items: flex-end</div>
+      <div class="box" style="display:flex; align-items:flex-end; gap:8px; min-height:110px;">
+        <div class="item" style="padding:6px 16px;">A</div>
+        <div class="item alt" style="padding:20px 16px;">B (tall)</div>
+        <div class="item green" style="padding:10px 16px;">C</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">items-stretch <span class="badge">기본값</span></div>
+      <div class="card-css">align-items: stretch</div>
+      <div class="box" style="display:flex; align-items:stretch; gap:8px; min-height:110px;">
+        <div class="item" style="padding:6px 16px;">A</div>
+        <div class="item alt" style="padding:6px 16px;">B</div>
+        <div class="item green" style="padding:6px 16px;">C</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 아이템 크기 -->
+<div class="section">
+  <h2>아이템 크기 제어</h2>
+  <div class="grid">
+    <div class="card wide">
+      <div class="card-label">flex-1 (남은 공간 모두 차지)</div>
+      <div class="card-css">flex: 1 1 0%</div>
+      <div class="box" style="display:flex; gap:8px;">
+        <div class="item gray" style="flex:none;">고정</div>
+        <div class="item green" style="flex:1;">flex-1 (나머지 전부!)</div>
+        <div class="item gray" style="flex:none;">고정</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">flex-none (고정 크기)</div>
+      <div class="card-css">flex: none</div>
+      <div class="box" style="display:flex; gap:8px;">
+        <div class="item" style="flex:none;">고정</div>
+        <div class="item alt" style="flex:none;">고정</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">flex-shrink-0 <span class="badge">자주 씀</span></div>
+      <div class="card-css">flex-shrink: 0</div>
+      <div class="box" style="display:flex; gap:8px;">
+        <div class="item green" style="flex-shrink:0;">Icon (안 줄어듦)</div>
+        <div class="item alt" style="flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis;">긴 텍스트가 있어도 아이콘은 안 줄어듦</div>
+      </div>
+    </div>
+  </div>
+  <div class="note">
+    <strong>flex-1 vs flex-auto:</strong> flex-1은 basis:0 → 동일 크기 분배 / flex-auto는 basis:auto → 콘텐츠 비례 분배. 대부분 flex-1이면 충분합니다.
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- wrap & gap -->
+<div class="section">
+  <h2>줄바꿈 & 간격</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label">flex-wrap</div>
+      <div class="card-css">flex-wrap: wrap</div>
+      <div class="box" style="display:flex; flex-wrap:wrap; gap:8px; max-width:280px;">
+        <div class="item">Tag 1</div><div class="item alt">Tag 2</div><div class="item green">Tag 3</div>
+        <div class="item">Tag 4</div><div class="item alt">Tag 5</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">gap-{n} <span class="badge">필수</span></div>
+      <div class="card-css">gap: {n * 4}px</div>
+      <div class="box" style="display:flex; flex-direction:column; gap:4px;">
+        <div style="display:flex; gap:4px; align-items:center;"><div class="item" style="padding:4px 10px; font-size:11px;">gap-1</div><span style="font-size:11px; color:#64748b;">= 4px</span></div>
+        <div style="display:flex; gap:8px; align-items:center;"><div class="item alt" style="padding:4px 10px; font-size:11px;">gap-2</div><span style="font-size:11px; color:#64748b;">= 8px</span></div>
+        <div style="display:flex; gap:16px; align-items:center;"><div class="item green" style="padding:4px 10px; font-size:11px;">gap-4</div><span style="font-size:11px; color:#64748b;">= 16px</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- self -->
+<div class="section">
+  <h2>개별 아이템 정렬 (align-self)</h2>
+  <div class="grid">
+    <div class="card wide">
+      <div class="card-label">self-start / self-center / self-end</div>
+      <div class="card-css">컨테이너 정렬과 무관하게 개별 아이템만 따로 정렬</div>
+      <div class="box" style="display:flex; align-items:flex-start; gap:12px; min-height:120px;">
+        <div class="item" style="align-self:flex-start;">self-start</div>
+        <div class="item alt" style="align-self:center;">self-center</div>
+        <div class="item green" style="align-self:flex-end;">self-end</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 실전 조합 -->
+<div class="section">
+  <h2>실전 조합 패턴 TOP 5</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label">1. 완전 중앙 정렬</div>
+      <div class="card-css">flex items-center justify-center</div>
+      <div class="box" style="display:flex; align-items:center; justify-content:center; min-height:100px;">
+        <div class="item" style="border-radius:50%; width:48px; height:48px; display:flex; align-items:center; justify-content:center;">OK</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">2. 양끝 배치</div>
+      <div class="card-css">flex items-center justify-between</div>
+      <div class="box" style="display:flex; align-items:center; justify-content:space-between; padding:16px;">
+        <span style="font-size:14px; font-weight:600;">결제 금액</span>
+        <span style="font-size:14px; font-weight:700; color:#3b82f6;">150,000원</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">3. 아이콘 + 텍스트</div>
+      <div class="card-css">flex items-center gap-2</div>
+      <div class="box" style="display:flex; align-items:center; gap:8px; padding:16px;">
+        <div style="width:20px; height:20px; background:#22c55e; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#fff; font-size:12px;">&#10003;</div>
+        <span style="font-size:14px;">예약이 완료되었습니다</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">4. 세로 레이아웃</div>
+      <div class="card-css">flex flex-col gap-4</div>
+      <div class="box" style="display:flex; flex-direction:column; gap:12px;">
+        <div class="item" style="text-align:left;">Header</div>
+        <div class="item alt" style="text-align:left; flex:1;">Content</div>
+        <div class="item green" style="text-align:left;">Footer</div>
+      </div>
+    </div>
+    <div class="card wide">
+      <div class="card-label">5. 사이드바 + 콘텐츠</div>
+      <div class="card-css">aside: w-64 flex-shrink-0 &nbsp;/&nbsp; main: flex-1</div>
+      <div class="box" style="display:flex; gap:12px; min-height:100px;">
+        <div class="item gray" style="flex-shrink:0; width:120px; display:flex; align-items:center; justify-content:center;">Sidebar (고정)</div>
+        <div class="item green" style="flex:1; display:flex; align-items:center; justify-content:center;">Main Content (flex-1)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
