@@ -23,9 +23,9 @@ title                    : "Minsu"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Minsu"
-description              : "AirPremia"
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
+description              : "개발하면서 생각했던것들을 나중에 다시 한번 정리하는 공간"
+url                      : "https://caesar0731.github.io"
+baseurl                  : ""
 repository               : "caesar0731/caesar0731.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
@@ -89,7 +89,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : # Open Graph/Twitter default site image
+og_image                 : "/assets/images/og-default.png"
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
